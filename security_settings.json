@@ -1,0 +1,13 @@
+{
+  "min_password_length": 8,
+  "require_uppercase": true,
+  "require_numbers": true,
+  "require_special_char": true,
+  "evaluate_tracking": true,
+  "password_policy": {
+    "penalty_for_short": "비밀번호가 너무 짧습니다. 최소 8자 이상이어야 합니다.",
+    "penalty_for_no_upper": "대문자가 포함되어야 합니다.",
+    "penalty_for_no_number": "숫자가 하나 이상 포함되어야 합니다.",
+    "penalty_for_no_special": "특수문자가 포함되어야 합니다."
+  }
+}
