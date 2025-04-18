@@ -1,17 +1,11 @@
 import json
 import re
-import sys
 
-# 설정 파일 불러오기
+
 def load_settings(filename):
-    try:
-        with open(filename, 'r', encoding='utf-8') as f:
-            return json.load(f)
-    except FileNotFoundError:
-        print(f"오류: 설정 파일 '{filename}'이(가) 없습니다. 프로그램을 종료합니다.")
-        sys.exit(1)  # 파일이 없으면 프로그램 종료
+    with open(filename, 'r', encoding='utf-8') as f:
+        return json.load(f)
 
-# 사용자 보안 평가 클래스
 class SecurityEvaluator:
     def __init__(self, name, email, password, tracking_permission, settings):
         self.name = name
@@ -54,7 +48,6 @@ class SecurityEvaluator:
         if self.settings["evaluate_tracking"] and self.tracking_permission.lower() == 'y':
             self.result["tracking_warning"] = "개인정보 추적을 허용했습니다. 주의가 필요합니다."
 
-# 메인 실행 부분
 if __name__ == "__main__":
     settings = load_settings("security_settings.json")
 
